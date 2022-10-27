@@ -38,5 +38,37 @@ function parseStory(rawStory) {
  * You'll want to use the results of parseStory() to display the story on the page.
  */
 getRawStory().then(parseStory).then((processedStory) => {
+  const sampleArray = [
+    { word: "Louis", pos: "noun" },
+    { word: "went", pos: "verb", },
+    { word: "to", },
+    { word: "the", },
+    { word: "store", pos: "adjective" },
+    { word: "," }
+  ]
+
+  sampleArray.map(object => {
+    const madlibBefore = document.querySelector('.madLibsEdit')
+    const madlibAfter = document.querySelector('.madLibsPreview')
+
+    if(object.pos === 'noun'){
+    
+    madlibBefore.innerHTML += "<span><input type='text' name='type' value='noun'> </span>";
+    }else if(object.pos === 'verb'){
+      madlibBefore.innerHTML += "<span><input type='text' name='type' value='verb'> </span>";
+    }else if(object.pos === 'adjective'){
+      madlibBefore.innerHTML += "<span><input type='text' name='type' value='adjective'> </span>";
+    }else{
+      madlibBefore.innerHTML += `${object.word} `;
+    }
+
+
+
+  })
+
+  madlibAfter.innerHTML = `${madLibsPreview}`
+
+
+
   console.log(processedStory);
 });
