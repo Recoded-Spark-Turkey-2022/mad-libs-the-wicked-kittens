@@ -45,30 +45,46 @@ getRawStory().then(parseStory).then((processedStory) => {
     { word: "the", },
     { word: "store", pos: "adjective" },
     { word: "," }
-  ]
+  ] // this is a sample array to be able to work on.
 
   sampleArray.map(object => {
     const madlibBefore = document.querySelector('.madLibsEdit')
     const madlibAfter = document.querySelector('.madLibsPreview')
 
+    function createHTML(place, text){
+      place.innerHTML +=`<span><input type='text' name='type' value='' placeholder='noun' id=${text}> </span>`
+    }
+
     if(object.pos === 'noun'){
-    
-    madlibBefore.innerHTML += "<span><input type='text' name='type' value='noun'> </span>";
+    createHTML(madlibBefore, 'nounID'); //created input for madlibbefore
+    createHTML(madlibAfter, 'nounID2')  //created input for madlibAfter -> we can add readonly later
+
+  madlibBefore.addEventListener('input', e => {
+    console.log(e.target.value) // we get the input but can not assign it?
+  })
+
+
     }else if(object.pos === 'verb'){
-      madlibBefore.innerHTML += "<span><input type='text' name='type' value='verb'> </span>";
+      createHTML(madlibBefore);
+      createHTML(madlibAfter)
+
+     
+
     }else if(object.pos === 'adjective'){
-      madlibBefore.innerHTML += "<span><input type='text' name='type' value='adjective'> </span>";
+      createHTML(madlibBefore);
+      createHTML(madlibAfter)
+
+    
+      
+
     }else{
       madlibBefore.innerHTML += `${object.word} `;
+      madlibAfter.innerHTML += `${object.word} `
     }
 
 
 
   })
-
-  madlibAfter.innerHTML = `${madLibsPreview}`
-
-
 
   console.log(processedStory);
 });
