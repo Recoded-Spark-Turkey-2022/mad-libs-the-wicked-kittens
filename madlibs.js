@@ -27,8 +27,20 @@
  * Please go through this lesson: https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/regular-expressions/
  */
 function parseStory(rawStory) {
-  // Your code here.
-  return {}; // This line is currently wrong :)
+  const storyArray = rawStory.split(` `)
+  const allWordsArray = []
+  for(let i =0; i<storyArray.length;i++){
+    let wordObjects = {word:storyArray[i]}
+    if(wordObjects.word === '[n]') {
+      wordObjects["pos"]= "noun"
+    }else if (wordObjects.word === '[a]'){
+      wordObjects["pos"]= "adjective"
+    }else if (wordObjects.word === '[v]'){
+      wordObjects["pos"]= "verb"
+    }
+    allWordsArray.push(wordObjects)
+  }
+  return allWordsArray  
 }
 // This is examplePull
 /**
