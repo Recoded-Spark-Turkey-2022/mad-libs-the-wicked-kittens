@@ -62,7 +62,8 @@ getRawStory().then(parseStory).then((processedStory) => {
 
 
     document.querySelector('#nounID').addEventListener('input', e => {
-    document.querySelector('#nounID2').value = document.querySelector('#nounID').value   
+    document.querySelector('#nounID2').value = e.target.value
+    //document.querySelector('#nounID').value   
   })
 
 
