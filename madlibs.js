@@ -85,6 +85,7 @@ getRawStory().then(parseStory).then((processedStory) => {
 
       madlibBefore.addEventListener('input', e => {
         document.querySelector('.madLibsPreview input').value = document.querySelector('.madLibsEdit input').value   
+        console.log(e)
       })
 
     }else if(object.pos === 'adjective'){
