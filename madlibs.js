@@ -51,29 +51,38 @@ getRawStory().then(parseStory).then((processedStory) => {
     const madlibBefore = document.querySelector('.madLibsEdit')
     const madlibAfter = document.querySelector('.madLibsPreview')
 
-    function createHTML(place, text){
-      place.innerHTML +=`<span><input type='text' name='type' value='' placeholder='noun' id=${text}> </span>`
+    function createHTML(place, text, pholder){
+      place.innerHTML +=`<span><input type='text' name='type' value='' placeholder=${pholder} id=${text}></span>`
     }
 
     if(object.pos === 'noun'){
-    createHTML(madlibBefore, 'nounID'); //created input for madlibbefore
-    createHTML(madlibAfter, 'nounID2')  //created input for madlibAfter -> we can add readonly later
+    createHTML(madlibBefore, 'nounID', 'noun'); //created input for madlibbefore
+    createHTML(madlibAfter, 'nounID2', 'noun')  //created input for madlibAfter -> we can add readonly later
 
-  madlibBefore.addEventListener('input', e => {
-    console.log(e.target.value) // we get the input but can not assign it?
+
+
+    document.querySelector('#nounID').addEventListener('input', e => {
+    document.querySelector('#nounID2').value = document.querySelector('#nounID').value   
   })
 
 
     }else if(object.pos === 'verb'){
-      createHTML(madlibBefore);
-      createHTML(madlibAfter)
+      createHTML(madlibBefore, 'verbID', 'verb');
+      createHTML(madlibAfter, 'verbID2', 'verb')
 
-     
+      madlibBefore.addEventListener('input', e => {
+        document.querySelector('.madLibsPreview input').value = document.querySelector('.madLibsEdit input').value   
+      })
 
     }else if(object.pos === 'adjective'){
-      createHTML(madlibBefore);
-      createHTML(madlibAfter)
+      createHTML(madlibBefore, 'adjID', 'adjective');
+      createHTML(madlibAfter, 'adjID2', 'adjective')
 
+      document.querySelector('#adjID').addEventListener('input', e => {
+        document.querySelector('#adjID').value = document.querySelector('#adjID2').value   
+
+        console.log(e)
+      })
     
       
 
