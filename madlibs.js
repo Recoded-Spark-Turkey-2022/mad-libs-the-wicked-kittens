@@ -50,5 +50,63 @@ function parseStory(rawStory) {
  * You'll want to use the results of parseStory() to display the story on the page.
  */
 getRawStory().then(parseStory).then((processedStory) => {
+  const sampleArray = [
+    { word: "Louis", pos: "noun" },
+    { word: "went", pos: "verb", },
+    { word: "to", },
+    { word: "the", },
+    { word: "store", pos: "adjective" },
+    { word: "," }
+  ] // this is a sample array to be able to work on.
+
+  sampleArray.map(object => {
+    const madlibBefore = document.querySelector('.madLibsEdit')
+    const madlibAfter = document.querySelector('.madLibsPreview')
+
+    function createHTML(place, text, pholder){
+      place.innerHTML +=`<span><input type='text' name='type' value='' placeholder=${pholder} id=${text}></span>`
+    }
+
+    if(object.pos === 'noun'){
+    createHTML(madlibBefore, 'nounID', 'noun'); //created input for madlibbefore
+    createHTML(madlibAfter, 'nounID2', 'noun')  //created input for madlibAfter -> we can add readonly later
+
+
+
+    document.querySelector('#nounID').addEventListener('input', e => {
+    document.querySelector('#nounID2').value = e.target.value
+    //document.querySelector('#nounID').value   
+  })
+
+
+    }else if(object.pos === 'verb'){
+      createHTML(madlibBefore, 'verbID', 'verb');
+      createHTML(madlibAfter, 'verbID2', 'verb')
+
+      madlibBefore.addEventListener('input', e => {
+        document.querySelector('.madLibsPreview input').value = document.querySelector('.madLibsEdit input').value   
+      })
+
+    }else if(object.pos === 'adjective'){
+      createHTML(madlibBefore, 'adjID', 'adjective');
+      createHTML(madlibAfter, 'adjID2', 'adjective')
+
+      document.querySelector('#adjID').addEventListener('input', e => {
+        document.querySelector('#adjID').value = document.querySelector('#adjID2').value   
+
+        console.log(e)
+      })
+    
+      
+
+    }else{
+      madlibBefore.innerHTML += `${object.word} `;
+      madlibAfter.innerHTML += `${object.word} `
+    }
+
+
+
+  })
+
   console.log(processedStory);
 });
