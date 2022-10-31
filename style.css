@@ -1,6 +1,9 @@
-
+* {
+	padding: 0px;
+	margin: 0px;
+}
 body{
-    /* background-image:url(../bgcss.jpg) ; */
+background-image:url(../bgcss.jpg) ;
     background-color: #cccccc;
     background-size: cover;
     display: flex;
@@ -17,7 +20,7 @@ body{
     align-items: center;
     justify-content: center;
     margin: auto;
-    
+    gap: 2em
   }
 
 .title{
@@ -26,24 +29,22 @@ body{
     align-items: center;
     color:#1fb663;
     font-weight: bold;
+    padding-left: 1em;
+    padding-right: 1em;
+    color:#eeeee4;
+    margin-top: 2%;
+
 
     -webkit-box-shadow: 5px 8px 14px 7px rgba(255,80,92,0.84); 
-    box-shadow: 5px 8px 14px 7px rgba(255,80,92,0.84);
+    box-shadow: 5px 8px 14px 2px rgba(255,80,92,0.84);
 
 }
 
-.rules {
-    width: 50%;
-    font-size: large;
-    text-align: center;
-    color: #1fb663;
-    font-weight: bold;
 
-}
 .container-main {
     display: flex;
     width: 100%;
-        border-radius: 50px;
+    border-radius: 50px;
     justify-content: space-between;
     
 }
@@ -51,60 +52,86 @@ body{
 .madLibsEdit {
     margin-left: 5%;
     padding: 2%;
-    width: 25%;
+    width: 30%;
     background-color: antiquewhite;
-    height: 80%;
+    height: 100%;
     border: 2px solid red;
     border-radius: 5px;
     text-align: left;
-    color:#1fb663;
-    font-size: medium;
+    color:#eeeee4;
+    /* color:#1fb663; */
+    font-size: 1.5em;
+    font-family: 'Calistoga', cursive;
+
 
     -webkit-box-shadow: 5px 8px 14px 7px rgba(255,80,92,0.84); 
-    box-shadow: 5px 8px 14px 7px rgba(255,80,92,0.84);
+    box-shadow: 5px 8px 14px 2px rgba(255,80,92,0.84);
+    background: rgba(51, 170, 51, .1)
+
 }
 
 .madLibsPreview {
     margin-right: 5%;
     padding: 2%;
-    width: 25%;
+    width: 30%;
     background-color: aliceblue;
-    height: 80%;
+    height: 100%;
     border: 2px solid red;
     border-radius: 5px;
     text-align: left;
-    color: #1fb663;
-    font-size: medium;
+    color: #eeeee4;
+    font-size: 1.5em;
+    background: rgba(51, 170, 51, .1);
+    font-family: 'Calistoga', cursive;
 
 
     -webkit-box-shadow: 5px 8px 14px 7px rgba(255,80,92,0.84); 
-    box-shadow: 5px 8px 14px 7px rgba(255,80,92,0.84);
+    box-shadow: 5px 8px 14px 2px rgba(255,80,92,0.84);
     
-    
-@media (max-width:767px ) {
-    input{
-        width: 1.5em;
-    }
-}
-@media (min-width:768px) and (max-width:991px )
-{
+}    
 
-}
-@media (min-width:992px ) {
-
-}
-
+.input-2:focus{
+-webkit-box-shadow: 5px 8px 14px 7px rgba(255,80,92,0.84); 
+box-shadow: 2px 2px 5px 1px #f4f6f7;
+color: red;
 }
 
 
 @media (max-width:767px ) {
     input{
-        width: 1.5em;
+        width: 3em;
+    }
+    .container-big {
+        width: 100%;
+        margin: 0;
+
+    }
+    .container-main {
+        display: flex;
+        flex-direction: column ;
+        width: 100%;
+        border-radius: 50px;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1em;
+        margin: 5%;
+
+    }
+    .madLibsEdit {
+        width: 100%;
+        margin: 0;
+    }
+
+    .madLibsPreview{
+        width: 100%;
+        margin: 0;
     }
 }
 @media (min-width:768px) and (max-width:991px )
 {
-    
+    input{
+        width: 3em;
+    }
 }
 @media (min-width:992px ) {
 
