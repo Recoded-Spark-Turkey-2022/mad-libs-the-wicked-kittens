@@ -79,6 +79,18 @@ getRawStory().then(parseStory).then((processedStory) => {
               })
           })
   })
+  const inputFields = document.querySelectorAll("input");
+  for (let i = 0; i < inputFields.length; i++) {
+    inputFields[i].addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        if (i === inputFields.length - 1) {
+          inputFields[0].focus();
+        } else {
+          inputFields[i + 1].focus();
+        }
+      }
+    });
+  }
 
   console.log(processedStory);
 });
