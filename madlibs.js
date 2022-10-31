@@ -57,9 +57,13 @@ getRawStory().then(parseStory).then((processedStory) => {
 
     function createHTML(place, pholder){
       place.innerHTML +=`<span> <input type='text' name='type' value='' placeholder=${pholder}> </span>`
+      place.style.lineHeight = '2em'
+
     }
     function createHTMLAfter(place, pholder){
-      place.innerHTML +=`<span> <input type='text' name='type' value='' placeholder=${pholder} readonly> </span>`
+      place.innerHTML +=`<span> <input type='text' name='type' value='' style= "background: transparent; border: none; text-align: center ;outline-width: 0;" readonly> </span>`
+      place.style.lineHeight = '2em'      
+      
     }
 
     if(object.pos){
