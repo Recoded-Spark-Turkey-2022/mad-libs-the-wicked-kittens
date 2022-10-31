@@ -1,6 +1,12 @@
 
+/**
+ * Your CSS goes here.
+ */
+ body{
+    background-image:url(./bgcss.jpg) ;
+
+
 body{
-    /* background-image:url(../bgcss.jpg) ; */
     background-color: #cccccc;
     background-size: cover;
     display: flex;
@@ -10,7 +16,9 @@ body{
 
 }
 .container-big {
+
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -24,7 +32,10 @@ body{
     align-items: center;
     color:#1fb663;
     font-weight: bold;
-    
+
+    -webkit-box-shadow: 5px 8px 14px 7px rgba(255,80,92,0.84); 
+    box-shadow: 5px 8px 14px 7px rgba(255,80,92,0.84);
+
 }
 
 .rules {
@@ -33,10 +44,12 @@ body{
     text-align: center;
     color: #1fb663;
     font-weight: bold;
+
 }
 .container-main {
     display: flex;
     width: 100%;
+        border-radius: 50px;
     justify-content: space-between;
     
 }
@@ -50,12 +63,13 @@ body{
     border: 2px solid red;
     border-radius: 5px;
     text-align: left;
+    color:#1fb663;
+    font-size: medium;
 
     -webkit-box-shadow: 5px 8px 14px 7px rgba(255,80,92,0.84); 
     box-shadow: 5px 8px 14px 7px rgba(255,80,92,0.84);
-
-  
 }
+
 .madLibsPreview {
     margin-right: 5%;
     padding: 2%;
@@ -65,9 +79,25 @@ body{
     border: 2px solid red;
     border-radius: 5px;
     text-align: left;
+    color: #1fb663;
+    font-size: medium;
 
 
     -webkit-box-shadow: 5px 8px 14px 7px rgba(255,80,92,0.84); 
     box-shadow: 5px 8px 14px 7px rgba(255,80,92,0.84);
+    
+    
+@media (max-width:767px ) {
+    input{
+        width: 1.5em;
+    }
+}
+@media (min-width:768px) and (max-width:991px )
+{
+
+}
+@media (min-width:992px ) {
+
+}
 
 }
