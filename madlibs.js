@@ -56,13 +56,13 @@ getRawStory().then(parseStory).then((processedStory) => {
     const madlibAfter = document.querySelector('.madLibsPreview')
 
     function createHTML(place, pholder){
-      place.innerHTML +=`<span> <input class='input-2' type='text' name='type' value='' placeholder=${pholder} style= "background: rgba(51, 170, 51, .1); font-weight: bold; font-size: 0.8em; -webkit-box-shadow: 5px 8px 14px 7px rgba(255,80,92,0.84); 
-      box-shadow: 2px 2px 5px 1px #eba236; border-radius: 10px" maxlength="20"> </span>`
+      place.innerHTML +=`<span> <input class='input-before' type='text' name='type' value='' placeholder=${pholder}  maxlength="20";
+      >  </span>`
       place.style.lineHeight = '2em'
 
     }
     function createHTMLAfter(place, pholder){
-      place.innerHTML +=` <input type='text' name='type' value='' style= "background: transparent; border: none; text-align: center ; outline-width: 0; font-weight: bold; color:#eeeee4; font-size: 1em;     font-family: 'Calistoga', cursive;" readonly>`
+      place.innerHTML +=`<span><input class= 'input-after' type='text' name='type' value='' readonly> </span>`
       place.style.lineHeight = '2em'      
       
     }
@@ -85,7 +85,7 @@ getRawStory().then(parseStory).then((processedStory) => {
   for (let i = 0; i < inputFields.length; i++) {
     inputFields[i].addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
-        if (i === inputFields.length - 1) {
+        if (i === inputFields.length/2 -1) {
           inputFields[0].focus();
         } else {
           inputFields[i + 1].focus();
